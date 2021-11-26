@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { User } from 'src/app/common/models/user';
+import { CommonService } from 'src/app/common/services/common/common.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +9,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  private destroy$ = new Subject();
+  user: User = new User();
+  loggedIn: boolean = false;
 
-  constructor() { }
+  constructor(
+    private commonService: CommonService,
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
   }
 
+  ngOnDestroy() {
+    this.destroy$.next(true);
+  }
+
+  logout() {
+    
+  }
+  
 }

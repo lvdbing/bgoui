@@ -26,20 +26,10 @@
                             </ul>
                         </li> -->
                     </ul>
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="dropdown nav-item"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-search-strong"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-right list-search">
-                                <li class="dropdown-item">
-                                    <form class="navbar-left nav-search" role="search">
-                                        <div class="form-inline">
-                                            <input class="form-control" placeholder="Search..." type="text">
-                                            <i class="fa fa-search"></i>
-                                        </div>
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="#popup"><i class="ion ion-navicon"></i></a></li>
+                    <ul class="nav navbar-nav ml-auto" *ngIf="!loggedIn">
+                        <li class="nav-item"><a class="nav-link" routerLink="/login" style="padding-right: 8px;">登录</a></li>
+                        <span style="line-height: 56px;">|</span>
+                        <li class="nav-item"><a class="nav-link" routerLink="/register">注册</a></li>
                     </ul>
                 </div>
             </div>
