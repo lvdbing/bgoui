@@ -1,0 +1,23 @@
+<div class="login-title">登录</div>
+<form nz-form [formGroup]="validateForm">
+    <nz-form-item>
+        <nz-form-control class="login-error" nzErrorTip="请输入手机号！">
+            <nz-input-group nzPrefixIcon="user" class="login-group">
+                <input type="text" nz-input formControlName="userName" placeholder="手机号" />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control class="login-error" nzErrorTip="请输入密码！">
+            <nz-input-group nzPrefixIcon="lock" class="login-group">
+                <input type="password" nz-input formControlName="password" placeholder="密码" />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+</form>
+<ul class="list-inline">
+    <li class="list-inline-item login-button">
+        <button nz-button nzType="primary" class="login-group login-button" (click)="login()">登录</button>
+    </li>
+    <a>注册</a>
+</ul>

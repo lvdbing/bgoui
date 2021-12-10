@@ -1,0 +1,50 @@
+<header id="nav" class="header">
+    <div class="navbar navbar-expand-md navbar-light default-menu justify-content-between" role="navigation">
+        <div class="container-fluid">
+            <a routerLink="/home" class="site-logo navbar-brand">
+                <span class="logo-big">BGO</span>
+            </a>
+            
+            <div class="collapse navbar-collapse" id="v">
+                <ul class="nav navbar-nav mr-auto" *ngIf="showFeatures">
+                    <li class="nav-item active"><a class="nav-link scroll" href="#nav">首页</a></li>
+                    <li class="nav-item"><a class="nav-link scroll" href="#feature">说明</a></li>
+                    <li class="nav-item"><a class="nav-link scroll" href="#about">关于</a></li>
+                    <li class="nav-item"><a class="nav-link scroll" href="#testimonial">介绍</a></li>
+                    <li class="nav-item"><a class="nav-link scroll" href="#blog">博客</a></li>
+                    <li class="nav-item"><a class="nav-link scroll" href="#action">联系</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav ml-auto" *ngIf="!isLogin">
+                    <li class="nav-item"><a class="nav-link" routerLink="/login" style="padding-right: 8px;">登录</a></li>
+                    <span style="line-height: 56px;">|</span>
+                    <li class="nav-item"><a class="nav-link" routerLink="/register">注册</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav ml-auto" *ngIf="isLogin">
+                    <span nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="'bottomRight'" class="login-user">
+                        <i nz-icon nzType="user" nzTheme="outline"></i>
+                        {{ user.Nickname }}
+                        <i nz-icon nzType="down"></i>
+                    </span>
+                    <nz-dropdown-menu #menu="nzDropdownMenu">
+                        <ul nz-menu nzSelectable>
+
+                            <li nz-menu-item
+                                *ngFor="let item of menus"
+                                routerLink="{{ item.router }}"
+                            >
+                                <i nz-icon nzType="{{ item.icon }}" nzTheme="outline"></i>{{ item.label }}
+                            </li>
+
+                            <li nz-menu-item
+                                (click)="logout()"
+                            ><i nz-icon nzType="logout" nzTheme="outline"></i>退出</li>
+
+                        </ul>
+                    </nz-dropdown-menu>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

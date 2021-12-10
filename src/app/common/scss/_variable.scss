@@ -1,0 +1,33 @@
+// viriable 变量。
+// $primary-color: #30B5D6; // 旧的主色调。
+$primary-color: #1abc9c; // 新的主色调。
+$error-color: #EA2027;
+$warning-color: #F79F1F;
+$notice-color: #9980FA;
+$disabled-color: #95a5a6;
+
+$light-cyan: #1abc9c;
+$light-green: #2ecc71;
+$light-blue: #3498db;
+$light-purple: #9b59b6;
+$light-dark: #34495e;
+$light-yellow: #f1c40f;
+$light-orange: #e67e22;
+$light-red: #e74c3c;
+$light-silver: #ecf0f1;
+$light-gray: #95a5a6;
+$dark-cyan: #16a085;
+$dark-green: #27ae60;
+$dark-blue: #2980b9;
+$dark-purple: #8e44ad;
+$dark-dark: #2c3e50;
+$dark-yellow: #f39c12;
+$dark-orange: #d35400;
+$dark-red: #c0392b;
+$dark-silver: #bdc3c7;
+$dark-gray: #7f8c8d;
+
+
+$input-height-base: 32px; // input的高度，参照src/theme.less。
+$input-height-lg: 40px; // input的高度，参照src/theme.less。
+$input-height-sm: 24px; // input的高度，参照src/theme.less。

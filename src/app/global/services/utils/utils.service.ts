@@ -128,4 +128,37 @@ export class UtilsService {
     return num.toString();
   }
   
+  // setBitwise 设置位数。
+  // @param baseNum: 要设置的原始值；
+  // @param bitNum: 设置的位数；
+  // @param flag: 将位数设置为0或者1。
+  // return 设置后的值。
+  setBitwise(baseNum: number, bitNum: number, flag: number): number {
+    if (flag === 1) {
+      return baseNum | bitNum;
+    } else {
+      return baseNum &~ bitNum;
+    }
+  }
+
+  // replaceBitwise 按位替换。
+  // @param oldNum 被替换的数值；
+  // @param newNum 新的数值；
+  // return 替换后的新值。
+  replaceBitwise(oldNum: number, newNum: number): number {
+    let newStr = newNum.toString(2);
+    for (let i=0; i< newStr.length; i++) {
+      let bitNum = 1 << (newStr.length - i - 1);
+      oldNum = this.setBitwise(oldNum, bitNum, parseInt(newStr[i]));
+    }
+    return oldNum
+  }
+
+  // checkBitwise 判断位数是否为1。
+  // @param baseNum: 要判断的原始值；
+  // @param bitNum: 判断的位数；
+  // return 位数是否为1。
+  checkBitwise(baseNum: number, bitNum: number): boolean {
+    return (baseNum & bitNum) === bitNum;
+  }
 }

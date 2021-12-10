@@ -1,0 +1,78 @@
+// $primary-color: #1abc9c;
+// $error-color: #EA2027;
+// $warning-color: #F79F1F;
+// $notice-color: #9980FA;
+// $disabled-color: #95a5a6;
+
+// a:not([href]):not([tabindex]) {
+//   color: $primary-color;
+// }
+
+// html {
+    
+//   // sm。
+//   @media screen and (min-width: 576px) {
+//       font-size: 60px;
+//   }
+  
+//   // md。
+//   @media screen and (min-width: 768px) {
+//       font-size: 80px;
+//   }
+  
+//   // lg。
+//   @media screen and (min-width: 992px) {
+//       font-size: 90px;
+//   }
+  
+//   // xl。
+//   @media screen and (min-width: 1200px) {
+//       font-size: 100px;
+//   }
+  
+//   // xxl。
+//   @media screen and (min-width: 1600px) {
+//       font-size: 120px;
+//   }
+
+// }
+
+.text-center {
+    text-align: center;
+}
+  
+.required {
+    color: $error-color;
+}
+  
+.float-left {
+    float: left;
+}
+  
+.float-right {
+    float: right;
+}
+  
+.clickable {
+    cursor: pointer;
+}
+  
+.primary {
+    color: $primary-color;
+}
+  
+.form-item {
+    margin-bottom: 12px;
+}
+  
+.form-label {
+    text-align: right;
+    padding-right: 12px;
+    line-height: $input-height-base;
+    // font-weight: bolder;
+}
+  
+.ant-input[disabled] {
+    color: #000000;
+}
+  

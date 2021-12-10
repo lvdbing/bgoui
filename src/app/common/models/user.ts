@@ -1,18 +1,26 @@
 export class User {
-	ID!: number
-	Username!: string
-	Password!: string
-	Nickname!: string
-	Phone!: string
-	Email!: string
-	Status!: number
-	CreatedAt!: number
-	CreatedBy!: string
-	ModifiedAt!: number
-	ModifiedBy!: string
+	ID         !: number // ID
+	CreatedAt  ?: number // 创建时间
+	CreatedBy  ?: string // 创建人
+	ModifiedAt ?: number // 修改时间
+	ModifiedBy ?: string // 修改人
+	IsDel      ?: number // 是否已删除
+	DeletedAt  ?: number // 删除时间
+	Username   ?: string // 用户名
+	Password   ?: string // 密码
+	Nickname   ?: string // 昵称
+	Phone      ?: string // 电话
+	Email      ?: string // 邮箱
+	Status     ?: number // 状态
+}
 
-	Token!: string // 网站令牌。访问数据操作时验证。
- // 网站令牌。访问数据操作时验证。
-	
-	constructor() {	}
+export class RegisterReq {
+	Username !: string // 用户名
+	Password !: string // 密码
+	Phone    ?: string // 电话
+}
+
+export class LoginReq {
+	Username !: string // 用户名
+	Password !: string // 密码
 }

@@ -1,0 +1,43 @@
+.logo-big {
+    font-weight: bolder;
+    color: #1abc9c;
+}
+
+.logo-small {
+    font-size: 16px;
+    font-weight: bolder;
+    color: #1abc9c;
+    margin: 0 -3px;
+}
+
+.login-button {
+    width: 100%;
+}
+
+.login-group {
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+}
+
+.login-group input {
+    font-size: 20px;
+    padding-left: 40px;
+}
+
+.login-error {
+    text-align: left;
+}
+
+.login-area {
+    background-color: #fff;
+    padding: 3rem 4rem;
+    border-radius: .4rem;
+}
+
+.login-title {
+    text-align: left;
+    font-size: 40px;
+    font-weight: bolder;
+    margin-bottom: 1rem;
+}
