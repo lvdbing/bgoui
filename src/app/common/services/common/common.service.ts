@@ -99,7 +99,11 @@ export class CommonService {
   }
 
   callHttpGet(api: string, successFunc?: any, errorFunc?: any) {
-    this.commonCall(this.http.getv1, api, successFunc, errorFunc);
+    this.http.getv1(api, (data: any) => {
+      this.handleSuccFunc(data, successFunc);
+    }, (err: any) => {
+      this.handleErrorFunc(err, errorFunc);
+    });
   }
 
   // callHttpPost 封装了调用http post的方法，简单处理了错误信息。
@@ -127,17 +131,6 @@ export class CommonService {
     });
   }
 
-  private commonCall(callFunc: any, api: string, succFunc?: any, errFunc?: any, body?: any) {
-    if (body) {
-      callFunc(api, body, (data: any) => {
-        this.handleSuccFunc(data, succFunc);
-      }, (err: any) => {
-        this.handleErrorFunc(err, errFunc);
-      });
-    }
-    callFunc(api, (data: any) => {}, (err: any) => {});
-  }
-
   private handleSuccFunc(data: any, successFunc?: any) {
     if (successFunc) {
       successFunc(data);
@@ -147,7 +140,7 @@ export class CommonService {
   private handleErrorFunc(err: any, errorFunc?: any) {
     let respError = err as RespError;
     if (errorFunc) {
-      this.nzHelperService.error(respError.Msg);
+      this.nzHelperService.error(respError.msg);
       errorFunc(respError);
     }
   }

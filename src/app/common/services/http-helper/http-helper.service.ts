@@ -13,96 +13,26 @@ export class HttpHelperService {
   
   // 简单查询时调用get（v1版本）。
   getv1(api: string, successFunc: any, failFunc: any): void {
-    this.commonCallV1(this.httpService.get, api, successFunc, failFunc);
+    this.httpService.get(this.getHttpUrlV1(api), successFunc, failFunc);
   }
 
   // 新建时调用post（v1版本）。
   postv1(api: string, body: any, successFunc: any, failFunc: any): void {
-    console.log(this);
-    // this.commonCallV1(this.httpService.post, api, successFunc, failFunc, body);
-
-    const URL = this.getHttpUrlV1(api);
-    
-    this.httpService.post(URL, body, (data: any) => {
-      console.log(data);
-      successFunc(data);
-    }, (err: any) => {
-      console.log(err);
-      failFunc(err);
-    });
+    this.httpService.post(this.getHttpUrlV1(api), body, successFunc, failFunc);
   }
 
   // 修改时调用put（v1版本）。
   putv1(api: string, body: any, successFunc: any, failFunc: any): void {
-    this.commonCallV1(this.httpService.put, api, successFunc, failFunc, body);
+    this.httpService.put(this.getHttpUrlV1(api), body, successFunc, failFunc);
   }
 
   patchv1(api: string, body: any, successFunc: any, failFunc: any): void {
-    this.commonCallV1(this.httpService.patch, api, successFunc, failFunc, body);
+    this.httpService.patch(this.getHttpUrlV1(api), body, successFunc, failFunc);
   }
 
   // 删除时调用delete（v1版本）。
   deletev1(api: string, successFunc: any, failFunc: any): void {
-    this.commonCallV1(this.httpService.delete, api, successFunc, failFunc);
-  }
-
-  // // 简单查询时调用get（v1版本）。
-  // getv1(url: string, successFunc: any, failFunc: any): void {
-  //   const URL = this.getHttpUrlV1(url);
-    
-  //   this.httpService.get(URL, (data: any) => {
-  //     successFunc(data);
-  //   }, (err: any) => {
-  //     failFunc(err);
-  //   });
-  // }
-
-  // // 新建时调用post（v1版本）。
-  // postv1(url: string, body: any, successFunc: any, failFunc: any): void {
-  //   const URL = this.getHttpUrlV1(url);
-    
-  //   this.httpService.post(URL, body, (data: any) => {
-  //     successFunc(data);
-  //   }, (err: any) => {
-  //     failFunc(err);
-  //   });
-  // }
-
-  // // 修改时调用put（v1版本）。
-  // putv1(url: string, body: any, successFunc: any, failFunc: any): void {
-  //   const URL = this.getHttpUrlV1(url);
-  //   this.httpService.put(URL, body, (data: any) => {
-  //     successFunc(data);
-  //   }, (err: any) => {
-  //     failFunc(err);
-  //   });
-  // }
-
-  // // 删除时调用delete（v1版本）。
-  // deletev1(url: string, successFunc: any, failFunc: any): void {
-  //   const URL = this.getHttpUrlV1(url);
-  //   this.httpService.delete(URL, (data: any) => {
-  //     successFunc(data);
-  //   }, (err: any) => {
-  //     failFunc(err);
-  //   });
-  // }
-
-  private commonCallV1(callFunc: any, api: string, successFunc: any, failFunc: any, body?: any): void {
-    const url = this.getHttpUrlV1(api);
-    if (body) {
-      callFunc(url, body, (data: any) => {
-        successFunc(data);
-      }, (err: any) => {
-        failFunc(err);
-      });
-    } else {
-      callFunc(url, (data: any) => {
-        successFunc(data);
-      }, (err: any) => {
-        failFunc(err);
-      });
-    }
+    this.httpService.delete(this.getHttpUrlV1(api), successFunc, failFunc);
   }
 
   private getHttpUrlV1(api: string): string {

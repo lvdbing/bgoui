@@ -47,7 +47,11 @@ export class RegisterInputComponent implements OnInit {
     req.Username = this.username;
     req.Password = this.password;
     req.Phone = this.username;
-    this.accountService.register(req);
+    this.accountService.register(req, (data: any) => {
+      console.log("register success:", data);
+    }, (err: any) => {
+      console.log("register error:", err);
+    });
 
 
     // this.commonService.warning("暂不支持页面注册！");
