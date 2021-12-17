@@ -19,6 +19,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { GlobalModule } from './global/global.module';
 import { PortalModule } from './portal/portal.module';
 import { PermitModule } from './permit/permit.module';
+import { BigscreenModule } from './bigscreen/bigscreen.module';
 
 registerLocaleData(zh);
 
@@ -42,6 +43,7 @@ registerLocaleData(zh);
     GlobalModule,
     PortalModule,
     PermitModule,
+    BigscreenModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

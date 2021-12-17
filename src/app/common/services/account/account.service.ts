@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RegisterReq } from '../../models/user';
+import { LoginReq, RegisterReq } from '../../models/user';
 import { CommonService } from '../common/common.service';
 
 @Injectable({
@@ -13,6 +13,10 @@ export class AccountService {
 
   register(req: RegisterReq, succFunc?: any, errFunc?: any) {
     this.commonService.callHttpPost("register", req, succFunc, errFunc);
+  }
+
+  login(req: LoginReq, succFunc?: any, errFunc?: any) {
+    this.commonService.callHttpPost("login", req, succFunc, errFunc);
   }
 
 }

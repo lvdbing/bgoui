@@ -140,8 +140,9 @@ export class CommonService {
   private handleErrorFunc(err: any, errorFunc?: any) {
     let respError = err as RespError;
     if (errorFunc) {
-      this.nzHelperService.error(respError.msg);
       errorFunc(respError);
+    } else {
+      this.nzHelperService.error(respError.msg);
     }
   }
 
